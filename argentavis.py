@@ -1,13 +1,18 @@
 import re
 
 
+# TODO: исправить класс чтобы он мог брать данные не только из файлов, но и из списков
+# TODO: дописать еще один класс спамера сообщений на почту
+# TODO: создать класс который будет работать с вотсапом
+
 class Separator:
     """
-    Класс для парсинга личных данных из текстов и файлов
+    Класс для изъятия личных данных из обьектов
     """
+
     def get_email(self, path):
         """
-        Возвращает из файла emails
+        Возвращает из файла emails в output.txt
         :param path: путь к файлу в котором искать email
         :return: количество строк
         """
@@ -20,15 +25,21 @@ class Separator:
             for i in result:
                 lister.append(i)
                 s += 1
-        print("Количество строк = ", s)
+        # print("Количество строк = ", s)
 
         with open('output.txt', 'a') as file:
             for index in lister:
                 file.write(index + '\n')
         return s
 
+    def get_phone(self, path):
+        pass
 
-# Example
-var = Separator()
 
-var.get_email('ooo.txt')
+if __name__ != '__main__':
+    pass
+else:
+    # Example
+    # name_var = Separator()
+    var = Separator
+    var.get_email('ooo.txt')
